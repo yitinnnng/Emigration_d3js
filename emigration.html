@@ -19,7 +19,7 @@
         border: 1px solid black;
         border-collapse: collapse;
     }
-
+	
     td:hover {background-color: #AE0000;}
 
         .china_route {
@@ -110,7 +110,7 @@
         <button class="btn btn-success" id="year-play-btn">Play <i class="fas fa-play"></i></button>
         <button class="btn btn-danger" id="clean">Clean</button>
     </div>
-    <div id="map"> </div>
+    <div id="map" style="text-align:center"> </div>
 
 	<table>
 			<tr>
@@ -2277,7 +2277,7 @@ var margin = {top: 30, right: 30, bottom: 70, left: 60},
     height = 400 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
-var svg = d3.select("#my_dataviz")
+var svg1 = d3.select("#my_dataviz")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -2289,13 +2289,13 @@ var svg = d3.select("#my_dataviz")
 var x = d3.scaleBand()
   .range([ 0, width ])
   .padding(0.2);
-var xAxis = svg.append("g")
+var xAxis = svg1.append("g")
   .attr("transform", "translate(0," + height + ")")
 
 // Initialize the Y axis
 var y = d3.scaleLinear()
   .range([ height, 0]);
-var yAxis = svg.append("g")
+var yAxis = svg1.append("g")
   .attr("class", "myYaxis")
 
 
@@ -2311,7 +2311,7 @@ function update(data) {
   yAxis.transition().duration(1000).call(d3.axisLeft(y));
 
   // Create the u variable
-  var u = svg.selectAll("rect")
+  var u = svg1.selectAll("rect")
     .data(data)
 
   u
